@@ -20,8 +20,17 @@ public class BDHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
 
-        MyDB.execSQL("create table vendedor(id INTEGER PRIMARY KEY AUTOINCREMENT,Nombre varchar(100),Propietario varchar(100),Direccion varchar(100))");
-        MyDB.execSQL("Insert into vendedor(Nombre,Propietario) values('Amaury','Amaury','Calle amaury')");
+         MyDB.execSQL("create table users(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre text,password text,monedero double)");
+        MyDB.execSQL("Insert into users(nombre,password,monedero) values('amaury','amaury',100)");
+
+        MyDB.execSQL("create table categoria(id INTEGER PRIMARY KEY AUTOINCREMENT,nombre varchar(50));");
+        MyDB.execSQL("insert into categoria(nombre) values('Fruteria'),('SuperMercado')");
+
+        MyDB.execSQL("create table vendedor(id INTEGER PRIMARY KEY AUTOINCREMENT,nombre_tienda varchar(100),propietario varchar(100),idcategoria varchar(100))");
+        MyDB.execSQL("insert into vendedor(nombre_tienda,propietario,idcategoria) values('Fruteria Javier','Javier',1),('SuperMercado Amaury','Amaury','2')");
+
+        MyDB.execSQL("Create table productos(id INTEGER PRIMARY KEY AUTOINCREMENT,nombre varchar(100),descripcion varchar(100),valor double,idTienda int)");
+        MyDB.execSQL("insert into productos(nombre,descripcion,valor,idTienda) values('Piña','Fruta piña',1.34,1),('Manzana','Fruta Manzana',2.34,1),('Pañales','Pañales bebe',5.23,2),('Arroz','Arroz blanco',1.12,2)");
     }
 
     @Override
