@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">hackaton</string>
+    <string name="tituloprincipal">Login</string>
+    <string name="loginusername">Username:</string>
+    <string name="loginpassword">Password:</string>
+    <string name="helplogin">Username</string>
+    <string name="helppassword">Password</string>
+    <string name="botonlogintext">Login</string>
+</resources>
